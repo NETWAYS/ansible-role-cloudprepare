@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: logstash
+  role_name: cloudprepare
   author: netways
-  description: Logstash for Linux
+  description: Preparation of cloud hosts
   company: "Netways GmbH"
   license: license (GPL-3.0-or-later)
   min_ansible_version: "2.9"
@@ -11,16 +11,15 @@ galaxy_info:
       version:
         - 7
         - 8
+        - 9
     - name: Debian
       version:
         - 10
+        - 11
     - name: Ubuntu
       version:
         - bionic
         - focal
   galaxy_tags:
-    - elk
-    - logstash
-    - logging
-    - system
+    - cloud
 dependencies: []

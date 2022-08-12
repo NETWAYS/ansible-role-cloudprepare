@@ -1,66 +1,65 @@
 ---
 
-- hosts: all
+- name: Setup CentOS
+  setup:
   become: no
   remote_user: centos
-  tasks:
-    - setup:
-      failed_when: false
-      ignore_unreachable: yes
+  failed_when: false
+  ignore_unreachable: yes
 
-    - meta: clear_host_errors
+- name: Clear Centos
+  meta: clear_host_errors
 
-- hosts: all
+- name: Setup Rocky
+  setup:
   become: no
   remote_user: rocky
-  tasks:
-    - setup:
-      failed_when: false
-      ignore_unreachable: yes
+  failed_when: false
+  ignore_unreachable: yes
 
-    - meta: clear_host_errors
+- name: Clear Rocky
+  meta: clear_host_errors
 
-- hosts: all
+- name: Setup Debian
+  setup:
   become: no
   remote_user: debian
-  tasks:
-    - setup:
-      failed_when: false
-      ignore_unreachable: yes
+  failed_when: false
+  ignore_unreachable: yes
 
-    - meta: clear_host_errors
+- name: Clear Debian
+  meta: clear_host_errors
 
-- hosts: all
+- name: Setup Ubuntu
+  setup:
   become: no
   remote_user: ubuntu
-  tasks:
-    - setup:
-      failed_when: false
-      ignore_unreachable: yes
+  failed_when: false
+  ignore_unreachable: yes
 
-    - meta: clear_host_errors
+- name: Clear Ubuntu
+  meta: clear_host_errors
 
-- hosts: all
+- name: Setup root
+  setup:
   become: no
   remote_user: root
-  tasks:
-    - setup:
-      failed_when: false
-      ignore_unreachable: yes
+  failed_when: false
+  ignore_unreachable: yes
 
-    - meta: clear_host_errors
+- name: Clear root
+  meta: clear_host_errors
 
-- hosts: all
-  become: no
-  tasks:
-    - group_by:
-        key: "{{ ansible_distribution }}"
-      changed_when: false
-      failed_when: false
-      ignore_unreachable: yes
+- name: Group hosts by distribution
+  group_by:
+    key: "{{ ansible_distribution }}"
+  changed_when: false
+  failed_when: false
+  ignore_unreachable: yes
 
-    - debug:
-        var: groups
-      failed_when: false
-      ignore_unreachable: yes
-      run_once: true
+- name: Put out all groups
+  debug:
+    var: groups
+  failed_when: false
+  ignore_unreachable: yes
+  run_once: true

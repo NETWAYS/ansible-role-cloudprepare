@@ -35,7 +35,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        distro: [centos7, centos9, rockylinux8, debian10, debian11, ubuntu2204]
+        distro: [centos7, centos8, rockylinux8, debian10, debian11, ubuntu2204]
         scenario: [default]
 
     steps:
